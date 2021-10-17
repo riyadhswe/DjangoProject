@@ -4,11 +4,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>First_Apps</title>
+    <title>Musician list</title>
 </head>
 <body>
-<h1>Riyadh</h1>
-<h1>{{ text_1 }}</h1>
+<h1>Musican list</h1>
+<table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Instrument</th>
+    </tr>
+{% for row in musician %}
+    <tr>
+        <td>{{ row.first_name }}</td>
+        <td>{{ row.last_name }}</td>
+        <td>{{ row.instrument }}</td>
+    </tr>
+    {% endfor %}
+</table>
 <img src="{% static "00.png" %}">
 </body>
 </html>
