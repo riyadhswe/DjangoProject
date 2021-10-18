@@ -13,3 +13,7 @@ def contact(request):
 
 def about(request):
     return HttpResponse("<h1>This is About<h1> <a href='/'>index</a><a href='/contact/'>contact</a>")
+
+def form(request):
+    diction = {}
+    return render(request,'first_app/form.html',context=diction)
