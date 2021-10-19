@@ -5,13 +5,16 @@
     <title>This is form</title>
 </head>
 <body>
-<h1>This is form</h1>
-<form action="index.html" method="post" >
-    <label for = "user_name">Full Name </label>
- <input type="text" name="user_name" value="">
-    <label for = "user_email">User Email </label>
-    <input type="email" name="user_email" value="">
-    <input type="submit" name="submit" value="submit">
+<hr>
+<h3> {{ heading1 }} </h3>
+<form action="" method="post">
+    {{ test_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" value = "Submit">
 </form>
+<hr>
+    {% if form %}
+        <p>Field: {{ field }}</p>
+    {% endif %}
 </body>
 </html>

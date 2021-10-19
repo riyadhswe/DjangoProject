@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import *
+from first_app import forms
 
 # Create your views here.
 def index(request):
@@ -8,12 +9,14 @@ def index(request):
     diction = {'text_1':'This is a list of Musician','musician': musician_list}
     return render(request,'first_app/index.html',context=diction)
 
-def contact(request):
-    return HttpResponse("<h1>This is Contact<h1> <a href='/'>index</a><a href='/about/'>About</a>")
-
-def about(request):
-    return HttpResponse("<h1>This is About<h1> <a href='/'>index</a><a href='/contact/'>contact</a>")
-
 def form(request):
-    diction = {}
+    new_form = forms.user_form()
+    diction = {'test_form' : new_form,
+               'heading1': "This form is created by django"}
+    if request.method == 'post':
+        new_form = forms.user_form(request.POST)
+        if new_form.is_valid():
+            diction.update({'field': new_form.cleaned_data['field']})
+            diction.update({'form': "Yes"})
+
     return render(request,'first_app/form.html',context=diction)
