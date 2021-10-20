@@ -6,15 +6,14 @@
 </head>
 <body>
 <hr>
+
 <h3> {{ heading1 }} </h3>
+<a href = "{% url 'first_app:index' %}">Back</a>
 <form action="" method="post">
     {{ test_form.as_p }}
     {% csrf_token %}
     <input type="submit" name="submit" value = "Submit">
 </form>
 <hr>
-    {% if form %}
-        <p>Name : {{ user_name }}</p>
-    {% endif %}
 </body>
 </html>

@@ -6,6 +6,6 @@ from first_app import models
 class MusicianForm(forms.ModelForm):
     class Meta:
         model = models.Musician
-        fields = ('first_name','last_name')
+        #fields = ('first_name','last_name')
         #exclude = ['first_name']   for remove
-        #fields = "__all__"
+        fields = "__all__"
