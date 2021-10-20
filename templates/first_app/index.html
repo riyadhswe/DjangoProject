@@ -1,28 +1,7 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Musician list</title>
-</head>
-<body>
-<a href = "{% url 'first_app:form' %}">Add New</a>
-<a >Musican list</a>
-<table border="1">
-    <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Instrument</th>
-    </tr>
-{% for row in musician %}
-    <tr>
-        <td>{{ row.first_name }}</td>
-        <td>{{ row.last_name }}</td>
-        <td>{{ row.instrument }}</td>
-    </tr>
-    {% endfor %}
-</table>
-<img src="{% static "00.png" %}">
-</body>
-</html>
+{% extends "first_app/base.html" %}
+{% block base %}
+    <h1>Index Page</h1>
+    {{ demo|upper }}
+    {{ demo|lower }}
+    {{ demo|cut:"i" }}
+{% endblock %}
