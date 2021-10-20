@@ -9,14 +9,13 @@ def index(request):
     diction = {'text_1':'This is a list of Musician','musician': musician_list}
     return render(request,'first_app/index.html',context=diction)
 
-def form(request):
-    new_form = forms.user_form()
-    diction = {'test_form' : new_form,
-               'heading1': "This form is created by django"}
-    if request.method == 'post':
-        new_form = forms.user_form(request.POST)
-        if new_form.is_valid():
-            diction.update({'field': new_form.cleaned_data['field']})
-            diction.update({'form': "Yes"})
+def form(request) :
+    new_form = forms . MusicianForm()
 
-    return render(request,'first_app/form.html',context=diction)
+    if request. method == 'POST':
+        new_form = forms. MusicianForm(request.POST)
+        if new_form. is_valid():
+            new_form. save (commit=True)
+            return index(request)
+    diction = {'test_form': new_form, 'heading_1': 'Add New Musician'}
+    return render (request, 'first_app/form.html', context=diction)
