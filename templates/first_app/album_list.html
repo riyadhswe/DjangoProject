@@ -1,4 +1,6 @@
 {% extends 'first_app/base.html' %}
 {% block body %}
 <h3>Album List</h3>
+    <h4>Artist Name: {{ artist_info.first_name }} {{ artist_info.last_name }}</h4>
+    <h4>instrument: {{ artist_info.instrument }}</h4>
 {% endblock %}
