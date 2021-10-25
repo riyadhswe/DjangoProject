@@ -3,6 +3,7 @@
 
     <h4>Artist Name: {{ artist_info.first_name }} {{ artist_info.last_name }}</h4>
     <h4>instrument: {{ artist_info.instrument }}</h4>
+    <a href="{% url 'first_app:edit_artist' artist_id=artist_info.id %}" class="btn btn-primary">Edit</a>
     <h3>Album List</h3>
     <table class="table">
         <tr>
