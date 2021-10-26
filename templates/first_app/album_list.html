@@ -13,7 +13,7 @@
         </tr>
         {% for album in album_list %}
         <tr>
-            <th> {{ album.name }}</th>
+            <th><a href="{% url 'first_app:edit_album' album_id=album.id %}"> {{ album.name }}</a></th>
             <th> {{ album.release_date }}</th>
             <th> {{ album.num_stars }}</th>
         </tr>
